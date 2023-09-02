@@ -15,7 +15,7 @@ O projeto se baseará inicialmente na Clean Architecture.
   - components
   - theme
   - ui
-   - splash
+    - splash
 ```
 
 ## Layout
