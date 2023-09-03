@@ -16,22 +16,21 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
 fun GradientButton(
-    cornerRadius: Dp,
     text: String,
-    roundedCornerShape: RoundedCornerShape,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
+    val cornerRadius = 30.dp
+    val roundedCornerShape = RoundedCornerShape(30)
+
 
     Button(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 32.dp, end = 32.dp),
+            .fillMaxWidth(),
         onClick = onClick,
         contentPadding = PaddingValues(),
         colors = ButtonDefaults.buttonColors(
@@ -44,7 +43,12 @@ fun GradientButton(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(
-                    brush = Brush.horizontalGradient(colors = listOf(Color(0XFF6B50F6), Color(0XFFCC8FED))),
+                    brush = Brush.horizontalGradient(
+                        colors = listOf(
+                            Color(0XFF6B50F6),
+                            Color(0XFFCC8FED)
+                        )
+                    ),
                     shape = roundedCornerShape
                 )
                 .clip(roundedCornerShape)
@@ -64,7 +68,5 @@ fun GradientButton(
 @Composable
 fun GradientButtonPreview() = GradientButton(
     text = "Get Started",
-    cornerRadius = 30.dp,
-    roundedCornerShape = RoundedCornerShape(30),
     onClick = {}
 )
